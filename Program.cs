@@ -258,3 +258,257 @@ class Jagged {
 	}
 }
 */
+
+
+//foreach
+/*
+using System;
+class foreachdemo{
+	static void Main(){
+		int sum=0;
+		int[] nums=new int[10];
+		
+		for(int i=0;i<10;i++)
+			nums[i]=i;
+		
+		foreach (int x in nums) {
+			Console.WriteLine("Значение элемента равно " + x);
+			sum+=x;
+		}
+		Console.WriteLine("Cумма равна "+ sum);
+		
+		Console.ReadKey();
+	}
+}
+*/
+
+//foreach demo для двумерных массивов
+/*
+using System;
+class foreachdemo2{
+	static void Main(){
+		int sum=0;
+		int[,] nums=new int[4,2];
+		
+		for(int i=0;i<4;i++)
+			for(int j=0;j<2;j++)
+				nums[i,j]=(i+1)*(j+1);
+		
+		foreach (int x in nums) {
+			Console.WriteLine("Значение элемента равно " + x);
+			sum+=x;
+		}
+		Console.WriteLine("Cумма равна "+ sum);
+		
+		Console.ReadKey();
+	}
+}
+*/
+
+//foreach для поиска
+/*using System;
+class search{
+	static void Main(){
+		
+		Console.WriteLine("Задайте длину массива ");
+		int l=Convert.ToInt32(Console.ReadLine());
+		int[] nums=new int[l];
+		int val;
+		bool found=false;
+		
+		for(int i=0;i < l;i++)
+			nums[i]=i;
+		
+		for (int i = 0; i < l; i++) 
+		{
+			Console.WriteLine(nums[i]);
+		}
+		
+		Console.WriteLine("Задайте значение, которое нужно найти ");
+		val=Convert.ToInt32(Console.ReadLine());
+		
+		
+		
+		
+		foreach (int x in nums) 
+		{
+			if(x==val)
+			{
+				found=true;
+				break;
+			}
+		}
+		if(found)
+		{
+			Console.WriteLine("Значение "+ val+ " найдено в массиве чисел");
+		}
+		
+		else
+		{
+			Console.WriteLine("Значение "+ val+ " не найдено в массиве чисел");
+		}
+		
+		Console.ReadKey();
+	}
+}
+*/
+
+//Строки
+/*
+using System;
+using System.Globalization;
+
+class strings{
+	static void Main(){
+	
+		string s1 ="C# is great for .NET";
+		string s2= "C# is great for .NET";
+		string s3= "Strings in C# are great!";
+		string sUp, sLow;
+		int res, ind;
+		
+		Console.WriteLine("First string is: "+s1);
+		Console.WriteLine("Lenght of first string is "+s1.Length);
+		
+		//Тестим прописные и строчные буквы в строках.
+		
+		sUp=s1.ToUpper(CultureInfo.CurrentCulture);
+		sLow=s2.ToLower(CultureInfo.CurrentCulture);
+		Console.WriteLine("First string upper reg: "+sUp);
+		Console.WriteLine("First string lower reg: "+sLow);	
+		Console.WriteLine();
+		
+		//Посимвольный вывод
+		
+		Console.WriteLine("Посимвольный вывод: " );
+		for(int i=0; i<s1.Length; i++)
+		{
+			Console.Write(s1[i]);
+		}
+		Console.WriteLine("\n");
+		
+		//Сравниваем строки:
+		
+		if(s1==s2)
+			Console.WriteLine("s1==s2");
+		else
+			Console.WriteLine("s1!=s2");
+		
+		if(s1==s3)
+			Console.WriteLine("s1==s3");
+		else
+			Console.WriteLine("s1!=s3");
+		
+		//Сравнение с учетом культурной среды
+		
+		res=string.Compare(s3,s1,StringComparison.CurrentCulture);
+		if(res==0)
+			Console.WriteLine("s1=s3");
+		else if(res<0)
+			Console.WriteLine("s1<s3");
+		else
+			Console.WriteLine("s1>s3");
+		Console.WriteLine();
+		
+		//Присвоение s2 нового значения
+		
+		s2="one two three one";
+		
+		//Поиск подстроки
+		
+		ind=s2.IndexOf("one", StringComparison.Ordinal);
+		Console.WriteLine("Index of first enter <one> "+ind);
+		ind=s2.LastIndexOf("one", StringComparison.Ordinal);
+		Console.WriteLine("Index of last enter <one> "+ind);
+		
+		Console.ReadKey();
+	}
+
+}
+*/
+
+//Массивы строк, программа для вывода цифр числа отдельными словами
+/*
+using System;
+
+class talk{
+	static void Main(){
+		int num,nextigit,numdigit;
+		int[] n= new int[20];
+		string[] s={"zero","one", "two", "three", "four",
+			"five", "six", "seven","eight", "nine"};
+		
+		Console.WriteLine("Enter the number: ");
+		num=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("Number is: "+ num);
+		Console.Write("Number by words: ");
+		
+		nextigit=0;
+		numdigit=0;
+		//получим отдельные цифры и сохраним в массив(сохраняются в обратном порядке) 
+		do
+		{
+			nextigit=num%10;
+			n[numdigit]=nextigit;
+			numdigit++;
+			num=num/10;
+		}
+		while (num>0);
+		numdigit--;
+		
+		for( ; numdigit >= 0; numdigit--)
+			Console.Write(s[n[numdigit]] + " ");
+		Console.WriteLine();
+		Console.ReadKey();
+	}
+}
+*/
+
+
+//Метод Substring
+/*
+using System;
+class SubStr {
+	static void Main() {
+		string orgstr = "В C# упрощается обращение со строками.";
+		// сформировать подстроку
+		string substr = orgstr.Substring(5, 20);
+		Console.WriteLine("orgstr: " + orgstr);
+		Console.WriteLine("substr: " + substr);
+		Console.WriteLine("Set substr: ");
+		Console.WriteLine("Set begin: ");
+		int b=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("Set end: ");
+		int e=Convert.ToInt32(Console.ReadLine());
+		string nsubstr = orgstr.Substring(b, e);
+		Console.WriteLine("Sew substr: "+nsubstr);
+		Console.ReadKey();
+	}
+}
+*/
+
+//foreach в строках
+
+using System;
+
+class foreachstr{
+	 static void Main(){
+		string[] st={"one","two","three","two","one"};
+		
+		foreach (string s in st) {
+			switch (s) {
+				case "one":
+					Console.Write("1");
+					break;
+				case "two":
+					Console.Write("2");
+					break;
+				case "three":
+					Console.Write("3");
+					break;
+			}
+		}
+		Console.WriteLine();
+		Console.ReadKey();
+	}
+}
